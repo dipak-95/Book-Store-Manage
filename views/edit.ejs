@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <style>
+        body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #f0f0f0; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+        input { width: 100%; padding: 8px; margin: 10px 0; box-sizing: border-box; }
+        .btn { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Book</h2>
+        <form action="/edit-book/<%= book._id %>" method="POST" enctype="multipart/form-data">
+            <input type="text" name="title" value="<%= book.title %>" required>
+            <input type="text" name="author" value="<%= book.author %>" required>
+            <p style="font-size: 12px; color: #666;">Current Cover:</p>
+            <img src="/uploads/<%= book.image %>" width="80" style="margin-bottom: 10px; border: 1px solid #ddd;">
+            <input type="file" name="image">
+            <button type="submit" class="btn">Update Book</button>
+        </form>
+        <p><a href="/" style="text-decoration: none; color: #666; font-size: 14px;">Cancel</a></p>
+    </div>
+</body>
+</html>
